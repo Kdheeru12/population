@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path
 from city.views import StateViewSet,CityViewSet, getUsers
 from rest_framework.routers import DefaultRouter
+from django.conf import settings
+from django.conf.urls.static import static
 
 router = DefaultRouter()
 router.register('state', StateViewSet, basename='StateViewsets')
@@ -26,7 +28,7 @@ router.register('city', CityViewSet, basename='CityViewsets')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('details/',getUsers.as_view(),name='getusers')
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += router.urls
 
 
