@@ -1,1 +1,1 @@
-web: gunicorn BdittoJobs.wsgi --log-file -
+web: gunicorn population.wsgi --log-file -
