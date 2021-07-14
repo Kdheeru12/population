@@ -57,7 +57,7 @@ class getUsers(APIView):
         if state:
             population = population.filter(city__state__name=state)
         elif city:
-            population = population.filter(city_name = city.lower())
+            population = population.filter(city__name = city.lower())
         male = population.filter(gender = 'male')
         print(male.count())
         female = population.filter(gender = 'female')
